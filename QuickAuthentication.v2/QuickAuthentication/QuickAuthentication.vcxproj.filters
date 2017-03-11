@@ -65,8 +65,5 @@
     <ClCompile Include="BasicOperations.cpp">
       <Filter>Файлы исходного кода\BigNumbers</Filter>
     </ClCompile>
-    <ClCompile Include="HelpFunctions.cpp">
-      <Filter>Файлы исходного кода</Filter>
-    </ClCompile>
   </ItemGroup>
 </Project>

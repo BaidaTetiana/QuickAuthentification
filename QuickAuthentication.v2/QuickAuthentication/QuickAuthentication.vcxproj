@@ -90,7 +90,6 @@
     <ClCompile Include="ComparisonOperation.cpp" />
     <ClCompile Include="Convert.cpp" />
     <ClCompile Include="Cryptography.cpp" />
-    <ClCompile Include="HelpFunctions.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Operations.cpp" />
     <ClCompile Include="OperationsForVector.cpp" />

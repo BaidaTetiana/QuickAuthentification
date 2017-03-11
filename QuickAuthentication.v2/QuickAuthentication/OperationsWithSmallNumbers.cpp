@@ -33,7 +33,7 @@ BigInt BigInt::operator/(ll arg)
 	BigInt res;
 	res = *this;
 	if (arg < 0)
-		res.sign = res.sign == '+' ? '-': '+', arg = -arg;
+		res.sign = res.sign == 1 ? -1 : 1, arg = -arg;
 	for (int i = (int)res.number.size() - 1, rem = 0; i >= 0; --i) {
 		long long cur = res.number[i] + rem * base;
 		res.number[i] = (int)(cur / arg);
@@ -93,10 +93,10 @@ void BigInt::operator/=(ll arg)
 void BigInt::operator=(ll value)
 {
 	number.clear();
-	sign = '+';
+	sign = 1;
 	if (value < 0)
 	{
-		sign = '-';
+		sign = -1;
 		value = -value;
 	}
 	for (; value>0; value = value / base)

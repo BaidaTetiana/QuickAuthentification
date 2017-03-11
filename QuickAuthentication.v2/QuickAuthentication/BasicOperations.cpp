@@ -6,62 +6,45 @@ BigInt BigInt:: operator +(const BigInt& arg)
 	BigInt scnd = arg;
 	if (frst.sign != scnd.sign)
 	{
-		if (frst.sign == '-')
+		if (frst.sign == -1)
 		{
 			frst.Abs();
 			return scnd - frst;
-
+			/// -f + s = s - f
 		}
 		else
 		{
 			scnd.Abs();
 			return frst - scnd;
+			/// f - s 
 		}
 	}
 	BigInt result = BigInt(Plus(frst.number, scnd.number, base));
-	if (frst.sign == '-') result.sign = '-';
 	return result;
 }
 
 BigInt BigInt:: operator -(const BigInt& arg)
 {
 	BigInt result = BigInt();
-	BigInt frst1 = *this;
-	BigInt scnd1 = arg;
-	if (frst1.sign != scnd1.sign)
-	{
-		if (frst1.sign == '-')
-		{
-			BigInt scnd2 = scnd1;
-			scnd2.sign = '-';
-			return frst1 + scnd2;
+	BigInt frst = *this;
+	BigInt scnd = arg;
+	if (frst.sign != scnd.sign){ //-f-s || f- -s 
+		frst.Abs(); scnd.Abs();
+		result = frst + scnd;
+		if (frst.sign == -1) {
+			result.sign = -1;
+			return result;
 		}
-		else
-		{
-			BigInt scnd2 = scnd1;
-			scnd2.sign = '+';
-			return frst1 + scnd1;
+		else{
+			return result;
 		}
 	}
-	if (frst1.sign == '-')
-	{
-		BigInt scnd2 = scnd1;
-		BigInt frst2 = frst1;
-		scnd2.sign = '+';
-		frst2.sign = '+';
-		return scnd2 - frst2;
-	}
-	BigInt frst, scnd;
-	if (frst1 < scnd1){
-		frst = scnd1;
-		scnd = frst1;
-		result.sign = '-';
-	}
-	else
-	{
-		frst = frst1;
-		scnd = scnd1;
-		result.sign = '+';
+	else{
+		if (frst.sign == -1){
+			// -f - -s s-f
+			frst.Abs(); scnd.Abs();
+			return scnd - frst;
+		}
 	}
 	result.number = Minus(frst.number, scnd.number, base);
 	return result;
@@ -73,8 +56,7 @@ BigInt BigInt:: operator *(const BigInt& arg0)
 	BigInt result = BigInt();
 	BigInt frst = *this;
 	BigInt scnd = arg0;
-	if (frst.sign != scnd.sign) result.sign = '-';
-	if (frst.sign == '-') result.sign = '+';
+	result.sign = frst.sign*scnd.sign;
 	//result.number = Mult(frst.number, scnd.number, base);
 	result = result.Shtrassen(frst, scnd);
 	return result;
@@ -109,8 +91,8 @@ pair<BigInt, BigInt> DivMod(BigInt &frst, BigInt &scnd)
 		}
 		q.number[i] = d;
 	}
-	/*q.sign = frst.sign * scnd.sign;
-	r.sign = frst.sign;*/
+	q.sign = frst.sign * scnd.sign;
+	r.sign = frst.sign;
 	q.trim();
 	r.trim();
 	r = const_cast<BigInt&>(frst)-(q*scnd);
@@ -118,16 +100,11 @@ pair<BigInt, BigInt> DivMod(BigInt &frst, BigInt &scnd)
 }
 BigInt BigInt::operator /(const BigInt & arg0)
 {
-
 	BigInt frst = *this;
 	BigInt scnd = arg0;
-
 	BigInt result = BigInt();
-
-	if (frst.sign != scnd.sign) result.sign = '-';
-	if (frst.sign == '-') result.sign = '+';
+	result.sign = frst.sign*scnd.sign;
 	result = DivMod(frst, scnd).first;
-
 	return result;
 
 }
@@ -137,11 +114,8 @@ BigInt BigInt::operator%(const BigInt& arg0)
 	BigInt result = BigInt();
 	BigInt frst = *this;
 	BigInt scnd = arg0;
-	if (frst.sign != scnd.sign) result.sign = '-';
-	if (frst.sign == '-') result.sign = '+';
-
+	result.sign = frst.sign*scnd.sign;
 	result = DivMod(frst, scnd).second;
-
 	return result;
 }
 

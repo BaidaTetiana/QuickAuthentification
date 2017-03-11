@@ -9,11 +9,11 @@ BigInt::BigInt(string _number)
 	if (_number[i] == '-')
 	{
 		i = 1;
-		sign = _number[i];
+		sign = -1;
 	}
 	else
 	{
-		sign = '+';
+		sign = 1;
 	}
 	number = ConvertFromDecToBasic(ConvertToDec(_number, i));
 }

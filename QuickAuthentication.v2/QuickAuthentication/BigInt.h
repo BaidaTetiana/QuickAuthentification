@@ -1,19 +1,18 @@
 #pragma once
 #include"Defines.h"
-// jfiughaer;ogiureoiguqwo;iqgu4[o8ug
 
 class BigInt
 {
 public:
 	BigInt(){
 		digitsNumberInBase = 1;
-		sign = '+';
+		sign = 1;
 	};
 	BigInt(string number);
 	BigInt(vll num)
 	{
 		digitsNumberInBase = 1;
-		sign = '+';
+		sign = 1;
 		number = num;
 	}
 	~BigInt(){};
@@ -115,7 +114,7 @@ private:
 	
 	static const int base = 2;
 	int digitsNumberInBase ;
-	char sign;
+	int sign;
 	vll number;
 
 	static vll Plus(vll frst, vll scnd, ll base);
