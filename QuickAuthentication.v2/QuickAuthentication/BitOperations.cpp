@@ -32,7 +32,7 @@ BigInt BigInt::operator >>(int a)
 	res.number.resize(number.size() - a);
 	for (int i = 0; i < number.size() - a; i++)
 		res.number[i] = number[i + a];
-	//res.trim();
+	res.trim();
 	return res;
 }
 

@@ -4,6 +4,7 @@ BigInt BigInt:: operator +(const BigInt& arg)
 {
 	BigInt frst = *this;
 	BigInt scnd = arg;
+	BigInt result = BigInt();
 	if (frst.sign != scnd.sign)
 	{
 		if (frst.sign == -1)
@@ -19,7 +20,17 @@ BigInt BigInt:: operator +(const BigInt& arg)
 			/// f - s 
 		}
 	}
-	BigInt result = BigInt(Plus(frst.number, scnd.number, base));
+	else{
+		if (frst.sign == -1) {
+			frst.Abs();
+			scnd.Abs();
+			result = Plus(frst.number, scnd.number, base);
+			result.sign = -1;
+		}
+		else result = Plus(frst.number, scnd.number, base);
+
+	}
+	
 	return result;
 }
 
@@ -28,7 +39,7 @@ BigInt BigInt:: operator -(const BigInt& arg)
 	BigInt result = BigInt();
 	BigInt frst = *this;
 	BigInt scnd = arg;
-	if (frst.sign != scnd.sign){ //-f-s || f- -s 
+	if (frst.sign != scnd.sign){ //-f-s || f--s 
 		frst.Abs(); scnd.Abs();
 		result = frst + scnd;
 		if (frst.sign == -1) {
@@ -46,7 +57,11 @@ BigInt BigInt:: operator -(const BigInt& arg)
 			return scnd - frst;
 		}
 	}
-	result.number = Minus(frst.number, scnd.number, base);
+	if (frst < scnd){
+		result.number = Minus(scnd.number, frst.number, base);
+		result.sign = -1;
+	}
+	else result.number = Minus(frst.number, scnd.number, base);
 	return result;
 
 }
@@ -103,7 +118,6 @@ BigInt BigInt::operator /(const BigInt & arg0)
 	BigInt frst = *this;
 	BigInt scnd = arg0;
 	BigInt result = BigInt();
-	result.sign = frst.sign*scnd.sign;
 	result = DivMod(frst, scnd).first;
 	return result;
 
@@ -114,7 +128,6 @@ BigInt BigInt::operator%(const BigInt& arg0)
 	BigInt result = BigInt();
 	BigInt frst = *this;
 	BigInt scnd = arg0;
-	result.sign = frst.sign*scnd.sign;
 	result = DivMod(frst, scnd).second;
 	return result;
 }

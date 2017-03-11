@@ -140,7 +140,7 @@ BigInt BigInt::BitPowN(BigInt a, BigInt N){
 BigInt BigInt::BitPowModN(BigInt a, BigInt b, BigInt N){
 	BigInt result = BigInt("1");
 	while (b > 0){
-		if (b % 2 == 0){
+		if (b % 2 != 0){
 			result = ((result%N)*(a%N)) % N;
 			b--;
 		}

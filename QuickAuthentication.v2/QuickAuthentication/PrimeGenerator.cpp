@@ -74,7 +74,7 @@ void PrimesGenerator::writePrimesToFile(){
 }
 
 bool PrimesGenerator::isPrime(BigInt n, int t){
-	return hasSmallPrimes(n) && MillerRabinTest(n, 50);
+	return !(hasSmallPrimes(n) && MillerRabinTest(n, 50));
 }
 
 vector<int> PrimesGenerator::eratosphen(){

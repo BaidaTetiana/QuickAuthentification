@@ -34,7 +34,8 @@ vector<BigInt> Cryptography::secondAlpha(BigInt v, BigInt c){
 }
 pair<BigInt, BigInt> Cryptography::firstBeta(BigInt n, BigInt j, BigInt u, BigInt v){
 	BigInt n1 = n;
-	BigInt l1, l2 = 0;
+	BigInt l1 = BigInt("0");
+	BigInt l2 = BigInt("0");
 	for (int i = 1; n == n1 || n1%v != 0; i++){
 		n1 -= u;
 		l1 = i;
