@@ -32,8 +32,6 @@ BigInt BigInt::operator/(ll arg)
 {
 	BigInt res;
 	res = *this;
-	if (arg < 0)
-		res.sign = res.sign == '+' ? '-': '+', arg = -arg;
 	for (int i = (int)res.number.size() - 1, rem = 0; i >= 0; --i) {
 		long long cur = res.number[i] + rem * base;
 		res.number[i] = (int)(cur / arg);
@@ -93,12 +91,6 @@ void BigInt::operator/=(ll arg)
 void BigInt::operator=(ll value)
 {
 	number.clear();
-	sign = '+';
-	if (value < 0)
-	{
-		sign = '-';
-		value = -value;
-	}
 	for (; value>0; value = value / base)
 	{
 		number.push_back(value%base);

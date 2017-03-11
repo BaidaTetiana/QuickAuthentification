@@ -4,11 +4,10 @@
 
 using namespace std;
 
-void BigInt:: Abs() 
-{
-	sign = '+';
-
-}
+//void BigInt:: Abs() 
+//{
+//	
+//}
 
 BigInt BigInt::PowModN(BigInt a, BigInt k, BigInt n)
 {
@@ -150,5 +149,6 @@ BigInt BigInt::BitPowModN(BigInt a, BigInt b, BigInt N){
 			b >>= 1;
 		}
 	}
+	result.trim();
 	return result;
 }

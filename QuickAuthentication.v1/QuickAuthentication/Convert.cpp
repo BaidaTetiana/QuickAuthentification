@@ -6,16 +6,8 @@ BigInt::BigInt(string _number)
 {
 	digitsNumberInBase = 1;
 	int i = 0;
-	if (_number[i] == '-')
-	{
-		i = 1;
-		sign = _number[i];
-	}
-	else
-	{
-		sign = '+';
-	}
 	number = ConvertFromDecToBasic(ConvertToDec(_number, i));
+	Trim(number);
 }
 
 vll BigInt::ConvertToDec(string number, int i)

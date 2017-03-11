@@ -6,13 +6,11 @@ class BigInt
 public:
 	BigInt(){
 		digitsNumberInBase = 1;
-		sign = '+';
 	};
 	BigInt(string number);
 	BigInt(vll num)
 	{
 		digitsNumberInBase = 1;
-		sign = '+';
 		number = num;
 	}
 	~BigInt(){};
@@ -64,7 +62,7 @@ public:
 	void operator %= (const BigInt&);
 	void operator ++();
 	void operator --();
-	void Abs();
+	//void Abs();
 	static BigInt PowModN(BigInt a, BigInt k, BigInt n);
 	BigInt PowN(BigInt a, BigInt N);
 	static BigInt BitPowN(BigInt a, BigInt N);
@@ -113,8 +111,7 @@ public:
 private:
 	
 	static const int base = 2;
-	int digitsNumberInBase ;
-	char sign;
+	int digitsNumberInBase;
 	vll number;
 
 	static vll Plus(vll frst, vll scnd, ll base);
