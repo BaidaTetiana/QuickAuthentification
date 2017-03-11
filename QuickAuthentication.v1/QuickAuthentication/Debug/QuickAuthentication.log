@@ -1,0 +1,25 @@
+﻿Сборка начата 09.03.2017 14:52:46.
+     1>Проект "E:\Програми\Diploma\QuickAuthentication\QuickAuthentication\QuickAuthentication.vcxproj" в узле 2 (целевые объекты Build).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt BasicOperations.cpp
+         BasicOperations.cpp
+     1>e:\програми\diploma\quickauthentication\quickauthentication\basicoperations.cpp(85): warning C4244: инициализация: преобразование "__int64" в "int", возможна потеря данных
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\Програми\Diploma\QuickAuthentication\Debug\QuickAuthentication.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:\Програми\Diploma\QuickAuthentication\Debug\QuickAuthentication.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\Програми\Diploma\QuickAuthentication\Debug\QuickAuthentication.lib" /MACHINE:X86 Debug\BasicOperations.obj
+         Debug\BitOperations.obj
+         Debug\ComparationOperationsWithSmallNumbers.obj
+         Debug\ComparisonOperation.obj
+         Debug\Convert.obj
+         Debug\Cryptography.obj
+         Debug\HelpFunctions.obj
+         Debug\Main.obj
+         Debug\Operations.obj
+         Debug\OperationsForVector.obj
+         Debug\OperationsWithSmallNumbers.obj
+         Debug\PrimeGenerator.obj
+         QuickAuthentication.vcxproj -> E:\Програми\Diploma\QuickAuthentication\Debug\QuickAuthentication.exe
+     1>Сборка проекта "E:\Програми\Diploma\QuickAuthentication\QuickAuthentication\QuickAuthentication.vcxproj" завершена (целевые объекты Build).
+
+Сборка успешно завершена.
+
+Затраченное время: 00:00:02.56
